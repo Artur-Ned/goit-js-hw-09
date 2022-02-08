@@ -10,15 +10,17 @@ console.log(btnStoptRef);
 btnStartRef.addEventListener('click', onBtnStartclick)
 btnStoptRef.addEventListener('click', onBtnStopclick)
 
+let timerId = null;
+
 function onBtnStartclick(e) {
-    bodyRef.style.backgroundColor = getRandomHexColor();
+  timerId = setInterval(() => { bodyRef.style.backgroundColor = getRandomHexColor();}, 1000);
     btnStartRef.setAttribute("disabled", "disabled");
     
 }
 
 function onBtnStopclick(e) {
-    // bodyRef.style.backgroundColor = getRandomHexColor();
-    btnStartRef.removeAttribute("disabled", "disabled");
+  
+  btnStartRef.removeAttribute("disabled", "disabled");
+  clearInterval(timerId);
 }
 
-// removeAttribute()
