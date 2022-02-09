@@ -32,7 +32,8 @@ img {
   font-size: large;
 }
 
-.color-swicher-start:hover {
+.color-swicher-start:hover,
+.data-start:hover {
   background-color: green;
   color: #fafafa;
 }
@@ -40,4 +41,21 @@ img {
 .color-swicher-stop:hover {
   background-color: blue;
   color: #fafafa;
+}
+
+.timer {
+  margin-top: 10px;
+  display: block;
+}
+
+.field {
+  display: inline;
+}
+
+span.value {
+  color: red;
+}
+
+span.label {
+  color: goldenrod;
 }
