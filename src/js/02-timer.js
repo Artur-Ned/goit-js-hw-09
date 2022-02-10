@@ -13,17 +13,9 @@ let timeForTimer = new Date();
 
 
 buttonRef.addEventListener('click', () => {
-  timerId = setInterval(() => {
-    
-    upDateTimer();
+ timerId = setInterval(() => {upDateTimer();
   }, 1000);
 });
-
-
-
-
-
-
 
 const options = {
   enableTime: true,
@@ -67,32 +59,17 @@ function convertMs(ms) {
     return String(value).padStart(2, '0');
 };
 
-function upDateTimer () {
-  
-  // if (timeForTimer < 0) {
-  //   clearInterval(timerId);
-  //   return;
-  // } else {
-    let converTime = convertMs(timeForTimer);
+function upDateTimer() {
+  if(timeForTimer < 0){
+    clearInterval(timerId);
+    return;
+  } else { let converTime = convertMs(timeForTimer);
     daysRef.textContent = addLeadingZero(converTime.days);
     hoursRef.textContent = addLeadingZero(converTime.hours);
     minutesRef.textContent = addLeadingZero(converTime.minutes);
     secondsRef.textContent = addLeadingZero(converTime.seconds);
-    
-  // }
+    timeForTimer -= 1000; }
+   
 };
 
 
-// function updateTimer() {
-//   if (timeTimer > 1) {
-//     let formatedTime = convertMs(timeTimer);
-//      // console.log(formatedTime);
-//     refs.timerFieldDay.textContent = addLeadingZero(formatedTime.days);
-//     refs.timerFieldHour.textContent = addLeadingZero(formatedTime.hours);
-//     refs.timerFieldMin.textContent = addLeadingZero(formatedTime.minutes);
-//     refs.timerFieldSec.textContent = addLeadingZero(formatedTime.seconds);
-//   } else {
-//     clearInterval(timerId);
-//   }
-//   timeTimer -= 1000;
-// }
