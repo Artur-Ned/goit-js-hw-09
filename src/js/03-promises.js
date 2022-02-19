@@ -6,11 +6,7 @@ const amountRef = document.querySelector('input[name="amount"]');
 const btn = document.querySelector('button[type="submit"]');
 formRef.addEventListener('submit', onFormSubmit);
 
-// console.log(formRef)
-// console.log(btn)
-// console.log(delayRef)
-// console.log(amountRef)
-// console.log(delayRef)
+
 
  
 
@@ -32,10 +28,34 @@ function onFormSubmit(evt) {
   evt.preventDefault();
   let delay = Number(delayRef.value);
   let step = stepRef.value;
-  let amoun = amountRef.value;
+  let amount = amountRef.value;
 
-  console.log(delay)
-  console.log(step)
-   console.log(amoun)
+
+createPromise(1, delay)
+    .then(({ position, delay }) => {
+      console.log(`✅ Fulfilled promise 1 in ${delay} ms`);
+     
+    })
+    .catch(({ position, delay }) => {
+     console.log(`❌ Rejected promise 1 in ${delay}ms`);
+    });
+
+
+
+for (let i = 2; i <= amount; i++) {
+    let delay = Number(step * i);
+    
+
+    createPromise(i, delay)
+      .then(({ position, delay }) => {
+        console.log(`✅ Fulfilled promise ${i} in ${delay}ms`);
+      
+      })
+      .catch(({ position, delay }) => {
+        console.log(`❌ Rejected promise ${i} in ${delay}ms`);
+       
+      });
+  }
+  
 
 }
